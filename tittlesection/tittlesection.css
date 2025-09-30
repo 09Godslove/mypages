@@ -11,4 +11,7 @@
         text-align: center;
         width: 100%;
         padding: 200px;
+        background-image: url('../images/hubble-ngc2566-potw2451a.jpg');
+        background-size: cover;
+        background-position: center center;
     }
