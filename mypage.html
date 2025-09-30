@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simvo</title>
     <link rel="stylesheet" href="./tittlesection/tittlesection.css">
+    <link rel="stylesheet" href="./aboutmesection/aboutmesection.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" >
 </head>
 <body>
@@ -12,6 +13,9 @@
         <h1 class="title-section-header">Godslove Uwumwonse</h1>
         <p class="title-section-subtitle">Changing the world one clock at a time</p>
         <button class="tittlesectionButton" onclick="makeDreamComeTrue()">Click me</button>
+    </div>
+    <div class="misc-section" id="aboutMe">
+        <h1>About Me</h1>
     </div>
 </body>
 <style>
@@ -27,11 +31,16 @@
         width: 100vw;
         height: 100vh;
     }
+    .misc-section{
+        width: 100vw;
+        padding: 100px 25px;
+    }
 </style>
 <script>
     function makeDreamComeTrue (){
         document.body.style.background = 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMx65LMESxVxsAWYDkP9Q8oItSArTz7VyTuQ&s)'
         document.getElementById('title').style.visibility = 'hidden'
+        document.getElementById('aboutMe').style.visibility = 'hidden'
     }
 </script>
 </html>
