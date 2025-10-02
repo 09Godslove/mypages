@@ -7,7 +7,7 @@
 }
 .aboutme-icons{
     font-size: 25px;
-    margin-top: 45px;
+    margin: 45px 20px 0px 0px;
 }
 .aboutme-icon{
     margin: 10px;
@@ -16,4 +16,15 @@
 .aboutme-icon:hover{
     cursor: pointer;
     color: var(--titleSectionTetiaryColor);
+}
+.aboutme-icons > a{
+    text-decoration: none;
+}
+.aboutme-CV > a{
+    color: lightsteelblue;
+    text-decoration: none;
+    margin-top: 20px;
+}
+.aboutme-CV >a:hover{
+    color: black;
 }
