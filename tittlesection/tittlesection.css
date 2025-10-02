@@ -2,6 +2,7 @@
     :root {
         --titleSectionPrimaryColor: #1a0035;
         --titleSectionSecondaryColor:#9e8165;
+        --titleSectionTetiaryColor:#f1b18c;
     }
     #title{
         color: var(--titleSectionPrimaryColor);

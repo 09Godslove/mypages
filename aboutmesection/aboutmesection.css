@@ -3,4 +3,17 @@
 }
 #misc-section-description{
     justify-content: center;
+    margin-top: 45px;
+}
+.aboutme-icons{
+    font-size: 25px;
+    margin-top: 45px;
+}
+.aboutme-icon{
+    margin: 10px;
+    color: var(--titleSectionSecondaryColor);
+}
+.aboutme-icon:hover{
+    cursor: pointer;
+    color: var(--titleSectionTetiaryColor);
 }
