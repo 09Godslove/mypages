@@ -1,4 +1,6 @@
 #aboutMe{
     width: 100%;
-    text-align: center;
+}
+#misc-section-description{
+    justify-content: center;
 }

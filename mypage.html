@@ -15,7 +15,15 @@
         <button class="tittlesectionButton" onclick="makeDreamComeTrue()">Click me</button>
     </div>
     <div class="misc-section" id="aboutMe">
-        <h1>About Me</h1>
+        <div class="title-block-container">
+            <h1>About Me</h1>
+            <p id="misc-section-description">
+                I am a developer who is exited about using code to solve real world problems. I have been writing code for about
+                5 years now. I am also a mechanical engineer who is enthusiatic about research into additive manufacturing.
+                Also a new age content creator, check out my channel on 'curious with gee'
+            </p>
+        </div>
+        
     </div>
 </body>
 <style>
@@ -34,6 +42,11 @@
     .misc-section{
         width: 100vw;
         padding: 100px 25px;
+        text-align: center;
+    }
+    .title-block-container{
+        width: 65%;
+        margin: 0 auto;
     }
 </style>
 <script>
