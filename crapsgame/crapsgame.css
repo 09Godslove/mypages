@@ -36,3 +36,6 @@
     font-weight: bolder;
     cursor: pointer;
 }
+#crapsgame-main-section{
+    display: none;
+}

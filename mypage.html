@@ -46,7 +46,7 @@
     <div class="main-section" id="craps-game">
         <h1 class="craps-game-title">Casino craps game</h1>
         <div class="craps-table">
-            <div class="craps-game-username-input">
+            <div class="craps-game-username-input" id="craps-game-username-input">
                 <div>
                     Enter your username to begin:
                 </div>
@@ -57,6 +57,9 @@
                     Continue
                 </div>
                 
+            </div>
+            <div id="crapsgame-main-section">
+                MAIN SECTION
             </div>
         </div>
 
@@ -90,14 +93,12 @@
         }
     }
 </style>
+<script src="./crapsgame/crapsgame.js"></script>
 <script>
     function makeDreamComeTrue (){
         document.body.style.background = 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMx65LMESxVxsAWYDkP9Q8oItSArTz7VyTuQ&s)'
         document.getElementById('title').style.visibility = 'hidden'
         document.getElementById('aboutMe').style.visibility = 'hidden'
-    }
-    function registerCrapsPlayer (){
-        let username = getElementById('username-input').value
     }
 </script>
 </html>
