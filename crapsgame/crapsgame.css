@@ -16,3 +16,23 @@
     background-image: url('../images/craps-table.jpg');
     background-size: cover;
 }
+.craps-game-username-input{
+    text-align: center;
+    margin-top: 50px;
+    color: #fdab19;
+}
+.username-input{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    margin-top: 25px;
+    text-align: center;
+}
+.username-input:focus{
+    outline-width: 0;
+}
+.continue-to-game:hover{
+    font-weight: bolder;
+    cursor: pointer;
+}
