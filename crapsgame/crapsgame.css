@@ -7,13 +7,14 @@
     text-align: center;
     margin-top: 100px;
     color: #fdab19;
+    font-weight: bolder;
 }
 .craps-table{
     width: min(700px, 80vw);
     height: min(500px, 57vw);
     border: 2px solid red;
     margin: 80px auto 0 auto;
-    background-image: url('../images/craps-table.jpg');
+    background-image: url('../images/craps-tabe2.jpg');
     background-size: cover;
 }
 .craps-game-username-input{
@@ -42,7 +43,7 @@
 #crapsgame-main-section-stats{
     text-align: center;
     margin-top: 75px;
-    color: white;
+    color: #fdab19;
     font-weight: bolder;
 
 }
