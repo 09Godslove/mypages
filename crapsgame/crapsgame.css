@@ -39,3 +39,14 @@
 #crapsgame-main-section{
     display: none;
 }
+#crapsgame-main-section-stats{
+    text-align: center;
+    margin-top: 75px;
+    color: white;
+    font-weight: bolder;
+
+}
+#crapsgame-main-section-money-stats{
+    margin: 25px 0px 5px 0px;
+    font-size: 30px;
+}
