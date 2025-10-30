@@ -13,7 +13,7 @@
 .craps-game-title{
     font-size: var(--game-title-size);
     text-align: center;
-    color: #fdab19;
+    color: #1f0358;
     font-weight: bolder;
     margin-top: calc(calc(100vh - var(--height-scale) - var(--title-margin-bottom) - var(--game-title-size)) / 2);
     margin-bottom: var(--title-margin-bottom);
@@ -31,7 +31,7 @@
     text-align: center;
     margin-top: calc(var(--height-scale) * .18);
     font-size: calc(var(--game-title-size) * 0.5);
-    color: #fdab19;
+    color: #1f0358;
 }
 .username-input{
     background: none;
@@ -56,7 +56,7 @@
 #crapsgame-main-section-stats{
     text-align: center;
     margin-top: calc(var(--height-scale) * .08);
-    color: #fdab19;
+    color: #1f0358;
     font-size: calc(var(--height-scale) * 0.05);
     font-weight: bolder;
 
@@ -75,4 +75,7 @@
     margin-top: calc(var(--height-scale) * .08);
     text-align: center;
     bottom: calc(var(--height-scale) * .04);
+    color: #1f0358;
+    font-weight: bolder;
+    cursor: pointer;
 }

@@ -11,15 +11,18 @@ const mainSection = 'crapsgame-main-section'
 const crapsUsername = 'craps-user'
 const startMoney = 'craps-money'
 const startRound = 'craps-rounds'
+const CrapsBet = "craps-user-bet-amount"
 const Bets = {
     even: 'EVEN',
     odd: 'ODD'
 }
+const minimumBet = 100
 
 //in-game variables
 let currentRounds = BeginRounds
 let currentMoney = beginMoney
 let currentBet = Bets.even
+let currentBetAmount = minimumBet
 //get and validate username
 function registerCrapsPlayer (){
         username = document.getElementById(usernameInput).value
@@ -47,6 +50,7 @@ function DisplayData (){
     DisplayMoney(currentMoney)
     DisplayRounds(currentRounds)
     betEven()
+    setBetAmount(minimumBet)
 }
 function DisplayMoney (money){
     document.getElementById(startMoney).innerHTML = money
@@ -65,4 +69,14 @@ function chooseBet(bet){
     document.getElementById(bet).style.backgroundColor = 'red'
     const betDeselect = bet == Bets.even? Bets.odd : Bets.even
     document.getElementById(betDeselect).style.backgroundColor = 'transparent'
+}
+function increaseBet (){
+    setBetAmount(Math.min(currentBetAmount + minimumBet, currentMoney))
+}
+function reduceBet(){
+    setBetAmount(Math.max(currentBetAmount - minimumBet, minimumBet))
+}
+function setBetAmount (betAmount){
+    currentBetAmount = betAmount
+    document.getElementById(CrapsBet).innerHTML = '$' + betAmount
 }
