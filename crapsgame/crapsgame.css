@@ -25,6 +25,7 @@
     margin: 0 auto;
     background-image: url('../images/craps-tabe2.jpg');
     background-size: cover;
+    position: relative;
 }
 .craps-game-username-input{
     text-align: center;
@@ -50,6 +51,7 @@
 }
 #crapsgame-main-section{
     display: none;
+    height: 100%;
 }
 #crapsgame-main-section-stats{
     text-align: center;
@@ -64,4 +66,13 @@
     font-size: 30px;
     font-size: calc(var(--height-scale) * 0.05);
     margin-top: calc(var(--height-scale) * .055);
+}
+.craps-rounds-manager{
+    position: absolute;
+    bottom: 0;
+    border: 1px solid red;
+    width: 100%;
+    margin-top: calc(var(--height-scale) * .08);
+    text-align: center;
+    bottom: calc(var(--height-scale) * .04);
 }
