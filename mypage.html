@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./tittlesection/tittlesection.css">
     <link rel="stylesheet" href="./aboutmesection/aboutmesection.css">
     <link rel="stylesheet" href="./crapsgame/crapsgame.css">
+    <link rel="stylesheet" href="./crapsgame/utilitis.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
@@ -70,18 +71,24 @@
                         Rounds: <span id="craps-rounds"></span>
                     </div>
                 </div>
-                <div class="craps-rounds-manager">
-                    <div id="EVEN" onclick="betEven()">
-                        EVEN
+                <div class="craps-table-contianer no-select">
+                    <div class="craps-roll-dice-container"> Roll Dice<i class="fa-solid fa-dice"></i></div>
+                </div>
+                <div class="craps-rounds-manager no-select">
+                    <div class="bets-grid">
+                        <div class="craps-bet-picker" id="EVEN" onclick="betEven()">
+                            EVEN
+                        </div>
+                        <div class="bet-amount">
+                            <span class="bet-change" onclick="reduceBet()">-</span>
+                            <span id="craps-user-bet-amount"></span>
+                            <span class="bet-change" onclick="increaseBet()">+</span>
+                        </div> 
+                        <div class="craps-bet-picker" id ='ODD' onclick="betOdd()">
+                            ODD
+                        </div>
                     </div>
-                    <div id ='ODD' onclick="betOdd()">
-                        ODD
-                    </div>
-                    <div>
-                        <span onclick="reduceBet()">-</span>
-                        <span id="craps-user-bet-amount"></span>
-                        <span onclick="increaseBet()">+</span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
