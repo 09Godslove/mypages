@@ -17,6 +17,8 @@ const Bets = {
     odd: 'ODD'
 }
 const minimumBet = 100
+const CraspsDiceRolButton = 'crapsDiceRollButton'
+const CrapsAnimationRoll = "craps-dice-animation-contanier"
 
 //in-game variables
 let currentRounds = BeginRounds
@@ -79,4 +81,14 @@ function reduceBet(){
 function setBetAmount (betAmount){
     currentBetAmount = betAmount
     document.getElementById(CrapsBet).innerHTML = '$' + betAmount
+}
+function rollDice (){
+    document.getElementById(CraspsDiceRolButton).style.display = 'none'
+    const diceRollElement = document.getElementById(CrapsAnimationRoll)
+    rollADie({ element: diceRollElement, numberOfDice: 2, callback: processDiceResult, delay: 100000000 });
+}
+function processDiceResult (diceResult){
+    console.log(diceResult)
+    let solution = diceResult[0] + diceResult[1]
+    console.log(solution)
 }
