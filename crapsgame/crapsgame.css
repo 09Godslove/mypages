@@ -76,6 +76,10 @@
     width: fit-content;
     margin: auto;
 }
+#craps-dice-animation-contanier{
+    margin-top: calc(var(--height-scale) * -.2);
+    margin-left: calc(var(--height-scale) * -.2);
+}
 .craps-roll-dice-container:hover{
     cursor: pointer;
     transform: scale(1.1);
