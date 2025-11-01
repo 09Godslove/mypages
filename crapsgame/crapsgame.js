@@ -88,14 +88,14 @@ function rollDice (){
     const diceRollElement = document.getElementById(CrapsAnimationRoll)
     rollADie({ element: diceRollElement, numberOfDice: 2, callback: processDiceResult, delay: 100000000 });
 }
+window.addEventListener('resize', formatDiceScale)
 function formatDiceScale (){
     const vh = window.innerHeight * 0.8
     const vw = window.innerWidth * 0.8
     const widthScale = Math.min(700, vw, vh)
     const heightScale = widthScale * 0.714
     const scale = heightScale / 366.7104
-    alert(scale)
-    document.getElementById(CrapsAnimationRoll).style.transform = 'scale: ' + scale + ' '
+    document.getElementById(CrapsAnimationRoll).style.transform = 'scale(' + scale + ') '
 
 }
 function processDiceResult (diceResult){
