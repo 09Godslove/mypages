@@ -22,6 +22,8 @@ const CraspsDiceRolButton = 'crapsDiceRollButton'
 const CrapsAnimationRoll = "craps-dice-animation-contanier"
 const CrapsRoundFinsihed = 'crpas-round-finished-grid-container'
 const roundFinishedMessage = 'round-finshed-message'
+const notAllowedBtn = 'not-allowed'
+const nextRoundAllowedBtn = 'allowed'
 
 //in-game variables
 let currentRounds = BeginRounds
@@ -60,6 +62,7 @@ function removeMainsection(){
 function DisplayData (){
     document.getElementById(crapsUsername).innerHTML = username
     DisplayMoney(beginMoney)
+    document.getElementById(notAllowedBtn).style.display = 'none'
     DisplayRounds(BeginRounds)
     betEven()
     setBetAmount(minimumBet)
@@ -148,6 +151,8 @@ function processDiceResult (diceResult){
     }
     if (currentMoney === 0){
         setFinishedMessage = "YOU'RE OUT OF MONEY"
+        document.getElementById(notAllowedBtn).style.display = 'block'
+        document.getElementById(nextRoundAllowedBtn).style.display = 'none'
     }
     document.getElementById(bettingGrid).style.display = 'none'
     document.getElementById(CrapsRoundFinsihed).style.display = 'block'
@@ -158,4 +163,5 @@ function exitGame(){
     removeMainsection()
     showRegistration()
     document.getElementById(usernameInput).value = ''
+    document.getElementById(nextRoundAllowedBtn).style.display = 'block'
 }

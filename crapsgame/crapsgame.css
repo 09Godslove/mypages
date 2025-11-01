@@ -121,3 +121,10 @@
     cursor: pointer;
     font-weight: bolder;
 }
+.not-allowed {
+    color: grey;
+    background-color: rgba(100, 100, 100, .5);
+}
+.not-allowed:hover{
+    cursor: not-allowed;
+}
