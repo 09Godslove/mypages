@@ -58,14 +58,19 @@ function removeMainsection(){
     document.getElementById(CrapsRoundFinsihed).style.display = 'none'
 }
 function DisplayData (){
-    canChaangeBet = true
     document.getElementById(crapsUsername).innerHTML = username
-    document.getElementById(CrapsAnimationRoll).style.display = 'none'
-    document.getElementById(bettingGrid).style.display = 'block'
-    document.getElementById(CraspsDiceRolButton).style.display = 'block'
     DisplayMoney(beginMoney)
     DisplayRounds(BeginRounds)
     betEven()
+    setBetAmount(minimumBet)
+    DisplayNextRound()
+}
+function DisplayNextRound (){
+    canChaangeBet = true
+    document.getElementById(CrapsAnimationRoll).style.display = 'none'
+    document.getElementById(bettingGrid).style.display = 'block'
+    document.getElementById(CraspsDiceRolButton).style.display = 'block'
+    document.getElementById(CrapsRoundFinsihed).style.display = 'none'
     setBetAmount(minimumBet)
 }
 function DisplayMoney (money){
