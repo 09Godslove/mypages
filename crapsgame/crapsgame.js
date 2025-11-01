@@ -4,6 +4,14 @@ let username = ''
 //Game stats
 let beginMoney = 1000
 let BeginRounds = 0
+const Bets = {
+    even: 'EVEN',
+    odd: 'ODD'
+}
+const minimumBet = 100
+const noOfDIceToRoll = 2
+const diceDelayMs = 100000000
+const resultDelayMS = 1500
 //HTML elements ID
 const usernameInput = 'username-input'
 const resistrationPane = 'craps-game-username-input'
@@ -13,17 +21,13 @@ const startMoney = 'craps-money'
 const startRound = 'craps-rounds'
 const CrapsBet = "craps-user-bet-amount"
 const bettingGrid = 'crpas-betting-grid-container'
-const Bets = {
-    even: 'EVEN',
-    odd: 'ODD'
-}
-const minimumBet = 100
 const CraspsDiceRolButton = 'crapsDiceRollButton'
 const CrapsAnimationRoll = "craps-dice-animation-contanier"
 const CrapsRoundFinsihed = 'crpas-round-finished-grid-container'
 const roundFinishedMessage = 'round-finshed-message'
 const notAllowedBtn = 'not-allowed'
 const nextRoundAllowedBtn = 'allowed'
+
 
 //in-game variables
 let currentRounds = BeginRounds
@@ -45,37 +49,49 @@ function registerCrapsPlayer (){
 
 
 }
+// Manipulate HTML elements
+
+function showElement(elementId) {
+    document.getElementById(elementId).style.display = 'block'
+}
+function hideElement(elementId) {
+    document.getElementById(elementId).style.display = 'none'
+}
 function removeRegistration (){
-    document.getElementById(resistrationPane).style.display = 'none'
+    hideElement(resistrationPane)
 }
 function showRegistration (){
-    document.getElementById(resistrationPane).style.display = 'block'
+    showElement(resistrationPane)
 }
 function showMainsection(){
-    document.getElementById(mainSection).style.display = 'block'
-    document.getElementById(CrapsRoundFinsihed).style.display = 'none'
+    showElement(mainSection)
+    hideElement(CrapsRoundFinsihed)
 }
 function removeMainsection(){
-    document.getElementById(mainSection).style.display = 'none'
-    document.getElementById(CrapsRoundFinsihed).style.display = 'none'
+    hideElement(mainSection)
+    hideElement(CrapsRoundFinsihed)
 }
+// show user rounds data
+
 function DisplayData (){
     document.getElementById(crapsUsername).innerHTML = username
     DisplayMoney(beginMoney)
-    document.getElementById(notAllowedBtn).style.display = 'none'
+    hideElement(notAllowedBtn)
     DisplayRounds(BeginRounds)
     betEven()
     setBetAmount(minimumBet)
     DisplayNextRound()
 }
+
 function DisplayNextRound (){
     canChaangeBet = true
-    document.getElementById(CrapsAnimationRoll).style.display = 'none'
-    document.getElementById(bettingGrid).style.display = 'block'
-    document.getElementById(CraspsDiceRolButton).style.display = 'block'
-    document.getElementById(CrapsRoundFinsihed).style.display = 'none'
+    hideElement(CrapsAnimationRoll)
+    showElement(bettingGrid)
+    showElement(CraspsDiceRolButton)
+    hideElement(CrapsRoundFinsihed)
     setBetAmount(minimumBet)
 }
+// Manage current data
 function DisplayMoney (money){
     currentMoney = money
     document.getElementById(startMoney).innerHTML = money
@@ -112,13 +128,15 @@ function setBetAmount (betAmount){
     }
     
 }
+// Roll dice and compute result
+
 function rollDice (){
-    document.getElementById(CrapsAnimationRoll).style.display = 'block'
+    showElement(CrapsAnimationRoll)
     canChaangeBet = false
     formatDiceScale()
-    document.getElementById(CraspsDiceRolButton).style.display = 'none'
+    hideElement(CraspsDiceRolButton)
     const diceRollElement = document.getElementById(CrapsAnimationRoll)
-    rollADie({ element: diceRollElement, numberOfDice: 2, callback: delayedProcessedDiceresult, delay: 100000000 });
+    rollADie({ element: diceRollElement, numberOfDice: noOfDIceToRoll, callback: delayedProcessedDiceresult, delay: diceDelayMs });
 }
 window.addEventListener('resize', formatDiceScale)
 function formatDiceScale (){
@@ -131,12 +149,11 @@ function formatDiceScale (){
 
 }
 function delayedProcessedDiceresult (diceResult) {
-    setTimeout(function(){processDiceResult(diceResult) }, 1500)
+    setTimeout(function(){processDiceResult(diceResult) }, resultDelayMS)
 }
 function processDiceResult (diceResult){
     let diceSum = Bets.odd
     let solution = diceResult.reduce((partialSum, a) => partialSum + a, 0)
-    console.log(solution)
     let setFinishedMessage = ''
     if (solution % 2 === 0){
         diceSum = Bets.even
@@ -151,17 +168,19 @@ function processDiceResult (diceResult){
     }
     if (currentMoney === 0){
         setFinishedMessage = "YOU'RE OUT OF MONEY"
-        document.getElementById(notAllowedBtn).style.display = 'block'
-        document.getElementById(nextRoundAllowedBtn).style.display = 'none'
+        showElement(notAllowedBtn)
+        hideElement(nextRoundAllowedBtn)
     }
-    document.getElementById(bettingGrid).style.display = 'none'
-    document.getElementById(CrapsRoundFinsihed).style.display = 'block'
+    hideElement(bettingGrid)
+    showElement(CrapsRoundFinsihed)
     document.getElementById(roundFinishedMessage).innerHTML = setFinishedMessage
 }
+// exit game funsction
+
 function exitGame(){
     alert('After paying ' + currentRounds + ' rounds you leave with $' + currentMoney)
     removeMainsection()
     showRegistration()
     document.getElementById(usernameInput).value = ''
-    document.getElementById(nextRoundAllowedBtn).style.display = 'block'
+    showElement(nextRoundAllowedBtn)
 }
