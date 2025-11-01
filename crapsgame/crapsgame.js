@@ -25,6 +25,7 @@ let currentRounds = BeginRounds
 let currentMoney = beginMoney
 let currentBet = Bets.even
 let currentBetAmount = minimumBet
+let canChaangeBet = true
 //get and validate username
 function registerCrapsPlayer (){
         username = document.getElementById(usernameInput).value
@@ -47,17 +48,18 @@ function showMainsection(){
 }
 function DisplayData (){
     document.getElementById(crapsUsername).innerHTML = username
-    currentMoney = beginMoney
-    currentRounds = BeginRounds
-    DisplayMoney(currentMoney)
-    DisplayRounds(currentRounds)
+    
+    DisplayMoney(beginMoney)
+    DisplayRounds(BeginRounds)
     betEven()
     setBetAmount(minimumBet)
 }
 function DisplayMoney (money){
+    currentMoney = money
     document.getElementById(startMoney).innerHTML = money
 }
 function DisplayRounds (round){
+    currentRounds = round
     document.getElementById(startRound).innerHTML = round
 }
 function betEven (){
@@ -67,10 +69,13 @@ function betOdd (){
     chooseBet(Bets.odd)
 }
 function chooseBet(bet){
-    currentBet = bet
-    document.getElementById(bet).style.backgroundColor = 'red'
-    const betDeselect = bet == Bets.even? Bets.odd : Bets.even
-    document.getElementById(betDeselect).style.backgroundColor = 'transparent'
+    if (canChaangeBet) {
+        currentBet = bet
+        document.getElementById(bet).style.backgroundColor = 'red'
+        const betDeselect = bet == Bets.even? Bets.odd : Bets.even
+        document.getElementById(betDeselect).style.backgroundColor = 'transparent'
+    }
+
 }
 function increaseBet (){
     setBetAmount(Math.min(currentBetAmount + minimumBet, currentMoney))
@@ -79,10 +84,14 @@ function reduceBet(){
     setBetAmount(Math.max(currentBetAmount - minimumBet, minimumBet))
 }
 function setBetAmount (betAmount){
-    currentBetAmount = betAmount
-    document.getElementById(CrapsBet).innerHTML = '$' + betAmount
+    if (canChaangeBet){
+        currentBetAmount = betAmount
+        document.getElementById(CrapsBet).innerHTML = '$' + betAmount
+    }
+    
 }
 function rollDice (){
+    canChaangeBet = false
     formatDiceScale()
     document.getElementById(CraspsDiceRolButton).style.display = 'none'
     const diceRollElement = document.getElementById(CrapsAnimationRoll)
@@ -99,7 +108,18 @@ function formatDiceScale (){
 
 }
 function processDiceResult (diceResult){
-    console.log(diceResult)
-    let solution = diceResult[0] + diceResult[1]
+    let diceSum = Bets.odd
+    let solution = diceResult.reduce((partialSum, a) => partialSum + a, 0)
     console.log(solution)
+    if (solution % 2 === 0){
+        diceSum = Bets.even
+    }
+    DisplayRounds(currentRounds + 1)
+    if(diceSum === currentBet){
+        alert('you win')
+        DisplayMoney(currentMoney + currentBetAmount)
+    }else{
+        alert('you lost')
+        DisplayMoney(currentMoney= currentMoney - currentBetAmount)
+    }
 }
