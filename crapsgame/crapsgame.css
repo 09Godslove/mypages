@@ -84,7 +84,7 @@
     cursor: pointer;
     transform: scale(1.1);
 }
-.craps-rounds-manager{
+.craps-rounds-manager, .craps-rounds-finished-manager{
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -102,19 +102,19 @@
     border: 2px solid white;
     border-radius: 5px;
 }
-.craps-bet-picker, .bet-amount{
+.craps-bet-picker, .bet-amount, .craps-finshed-picker{
     padding: calc(var(--height-scale) * .009);
 }
 .craps-bet-picker:hover{
     cursor: pointer;
     font-weight: bolder;
 }
-.bet-amount{
+.bet-amount, .rounds-finished-message{
     border-left: 2px solid white;
     border-right: 2px solid white;
     background-color: rgba(100, 100, 100, .5);
 }
-#craps-user-bet-amount{
+#craps-user-bet-amount,.rounds-finished-message{
     margin: 0 calc(var(--height-scale) * .009);
 }
 .bet-change:hover{

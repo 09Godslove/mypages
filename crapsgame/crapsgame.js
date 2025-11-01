@@ -12,6 +12,7 @@ const crapsUsername = 'craps-user'
 const startMoney = 'craps-money'
 const startRound = 'craps-rounds'
 const CrapsBet = "craps-user-bet-amount"
+const bettingGrid = 'crpas-betting-grid-container'
 const Bets = {
     even: 'EVEN',
     odd: 'ODD'
@@ -19,6 +20,8 @@ const Bets = {
 const minimumBet = 100
 const CraspsDiceRolButton = 'crapsDiceRollButton'
 const CrapsAnimationRoll = "craps-dice-animation-contanier"
+const CrapsRoundFinsihed = 'crpas-round-finished-grid-container'
+const roundFinishedMessage = 'round-finshed-message'
 
 //in-game variables
 let currentRounds = BeginRounds
@@ -43,12 +46,23 @@ function registerCrapsPlayer (){
 function removeRegistration (){
     document.getElementById(resistrationPane).style.display = 'none'
 }
+function showRegistration (){
+    document.getElementById(resistrationPane).style.display = 'block'
+}
 function showMainsection(){
     document.getElementById(mainSection).style.display = 'block'
+    document.getElementById(CrapsRoundFinsihed).style.display = 'none'
+}
+function removeMainsection(){
+    document.getElementById(mainSection).style.display = 'none'
+    document.getElementById(CrapsRoundFinsihed).style.display = 'none'
 }
 function DisplayData (){
+    canChaangeBet = true
     document.getElementById(crapsUsername).innerHTML = username
-    
+    document.getElementById(CrapsAnimationRoll).style.display = 'none'
+    document.getElementById(bettingGrid).style.display = 'block'
+    document.getElementById(CraspsDiceRolButton).style.display = 'block'
     DisplayMoney(beginMoney)
     DisplayRounds(BeginRounds)
     betEven()
@@ -91,6 +105,7 @@ function setBetAmount (betAmount){
     
 }
 function rollDice (){
+    document.getElementById(CrapsAnimationRoll).style.display = 'block'
     canChaangeBet = false
     formatDiceScale()
     document.getElementById(CraspsDiceRolButton).style.display = 'none'
@@ -108,21 +123,34 @@ function formatDiceScale (){
 
 }
 function delayedProcessedDiceresult (diceResult) {
-    setTimeout(function(){processDiceResult(diceResult) }, 1000)
+    setTimeout(function(){processDiceResult(diceResult) }, 1500)
 }
 function processDiceResult (diceResult){
     let diceSum = Bets.odd
     let solution = diceResult.reduce((partialSum, a) => partialSum + a, 0)
     console.log(solution)
+    let setFinishedMessage = ''
     if (solution % 2 === 0){
         diceSum = Bets.even
     }
     DisplayRounds(currentRounds + 1)
     if(diceSum === currentBet){
-        //alert('you win')
+        setFinishedMessage = 'YOU WIN!'
         DisplayMoney(currentMoney + currentBetAmount)
     }else{
-        //alert('you lost')
+        setFinishedMessage = 'YOU LOSE'
         DisplayMoney(currentMoney= currentMoney - currentBetAmount)
     }
+    if (currentMoney === 0){
+        setFinishedMessage = "YOU'RE OUT OF MONEY"
+    }
+    document.getElementById(bettingGrid).style.display = 'none'
+    document.getElementById(CrapsRoundFinsihed).style.display = 'block'
+    document.getElementById(roundFinishedMessage).innerHTML = setFinishedMessage
+}
+function exitGame(){
+    alert('After paying ' + currentRounds + ' rounds you leave with $' + currentMoney)
+    removeMainsection()
+    showRegistration()
+    document.getElementById(usernameInput).value = ''
 }
