@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
-<body>
+<body onload="getQuote()">
     <div class="main-section" id = 'title'>
         <h1 class="title-section-header">Godslove Uwumwonse</h1>
         <p class="title-section-subtitle">Changing the world one clock at a time</p>
@@ -116,6 +116,14 @@
         </div>
 
     </div>
+     <div class="main-section" id="random-quote-generator">
+        <div>
+            <div>Quote <div id="random-quote-text"></div></div>
+            <div>Author <div id="random-quote-author"></div></div>
+            <div onclick="getQuote()">New Quote </div>
+
+        </div>
+     </div>
 </body>
 <style>
     * {
@@ -147,6 +155,7 @@
 </style>
 <script src="./crapsgame/crapsgame.js"></script>
 <script type="text/javascript" src="https://unpkg.com/roll-a-die@2.0.1/dist/roll-a-die.js"></script>
+<script src="./randomQuoteGenerator/randomQuoteGenerator.js"></script>
 <script>
     function makeDreamComeTrue (){
         document.body.style.background = 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMx65LMESxVxsAWYDkP9Q8oItSArTz7VyTuQ&s)'
