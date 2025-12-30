@@ -127,13 +127,7 @@
         </div>
     </div>
     <div class="main-section" id="stock-analysis-dashboard">
-        <div>
-            <div id="stock-analysis-dashboard-title">stock Analysis Dashboard</div>
-            <div id="stock-analysis-dashboard-title">Enter the symbol of the stock you wish to analyze. E.g MSFT.</div>
-            <input type="text" class="stock-anaysis-input" id="stock-analysis-input">
-            <button class="stock-analysis-btn" onclick="analyzeStock()">Analyze</button>
-            <div id="stock-analysis-dashboard-data"></div>
-        </div>
+        <div id="root"></div>
     </div>
 </body>
 <style>
@@ -168,6 +162,7 @@
 <script src="./src/stockAnalysisDashboard/stockAnalysisDashboard.js"></script>
 <script type="text/javascript" src="https://unpkg.com/roll-a-die@2.0.1/dist/roll-a-die.js"></script>
 <script src="./src/randomQuoteGenerator/randomQuoteGenerator.js"></script>
+<script type="module" src="./src/main.tsx"></script>
 <script>
     function makeDreamComeTrue (){
         document.body.style.background = 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMx65LMESxVxsAWYDkP9Q8oItSArTz7VyTuQ&s)'
@@ -177,4 +172,4 @@
 </script>
 </html>
     <!-- <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script> -->
+     -->
