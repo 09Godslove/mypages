@@ -14,12 +14,11 @@ const LabelDisplay = styled.div`
 
 function NumberStat({value, label, center}: {value: number, label: string, center?: boolean}) {
   return (
-    <VerticalAlignContainer>
-        <VerticalAlignContent style={{textAlign: center ? 'center': 'left'}}>
+        <div style={{textAlign: center ? 'center': 'left' }}>
             <NumberDisplay>{numabbr(value)}</NumberDisplay>
             <LabelDisplay>{label}</LabelDisplay>
-        </VerticalAlignContent>
-    </VerticalAlignContainer>
+        </div>
+
   )
 }
 

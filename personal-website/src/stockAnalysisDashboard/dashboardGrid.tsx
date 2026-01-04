@@ -6,8 +6,8 @@ import NumberStat from './numberStat';
 
 function DashboardGrid({stockData}: {stockData: any}) {
   useEffect( ()=> {
-    GridStack.init()
-  })
+    GridStack.init({ cellHeight: 110 })
+  }, [])
 
   return (
     <div>
@@ -26,6 +26,7 @@ function DashboardGrid({stockData}: {stockData: any}) {
             <NumberStat 
             value= {stockData.basicinfo.fullTimeEmployees} 
             label='Employees'
+            center = {true}
             ></NumberStat>
           </DashboardGridContent>
         </div>
@@ -34,6 +35,7 @@ function DashboardGrid({stockData}: {stockData: any}) {
             <NumberStat 
             value= {stockData.basicinfo.totalCash} 
             label='Total Revenue'
+            center = {true}
             ></NumberStat>
           </DashboardGridContent>
         </div>
@@ -42,6 +44,7 @@ function DashboardGrid({stockData}: {stockData: any}) {
             <NumberStat 
             value= {stockData.basicinfo.trailingEps} 
             label='Earnings per share'
+            center = {true}
             ></NumberStat>
           </DashboardGridContent>
         </div>
