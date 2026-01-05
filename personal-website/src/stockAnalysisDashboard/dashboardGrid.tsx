@@ -3,6 +3,7 @@ import 'gridstack/dist/gridstack.min.css';
 import { GridStack } from 'gridstack';
 import { DashboardGridContent} from "./stockAnalysisDashboard"
 import NumberStat from './numberStat';
+import LineChartContent from './lineChartContent';
 
 function DashboardGrid({stockData}: {stockData: any}) {
   useEffect( ()=> {
@@ -48,7 +49,15 @@ function DashboardGrid({stockData}: {stockData: any}) {
             ></NumberStat>
           </DashboardGridContent>
         </div>
+        <div className="grid-stack-item"  gs-w="10" gs-h="3">
+          <DashboardGridContent className="grid-stack-item-content">
+            <LineChartContent 
+              priceHistory={stockData.PriceHistory}
+            ></LineChartContent>
+          </DashboardGridContent>
+        </div>
       </div>
+
     </div>
   )
 }
