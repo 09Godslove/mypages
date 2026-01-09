@@ -91,7 +91,7 @@ function DashboardGrid({stockData}: {stockData: any}) {
             </div>
           </DashboardGridContent>
         </div>
-         <div className="grid-stack-item"  gs-w="3" gs-h="1.5">
+         <div className="grid-stack-item"  gs-w="3" gs-h="2">
           <img 
             src={`data:image/png;base64,${stockData.finalResult.data.EncodedWordcloud}`} 
             style={{height: '100%', width: '100%', borderRadius: '5px'}}
