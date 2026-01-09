@@ -23,16 +23,17 @@ function getRandomColor(arr){
 }
 
 async function getQuote(){
-    const response = await fetch('https://api.quotable.io/quotes/random')
+    const response = await fetch('https://thequoteshub.com/api/?format=json')
     let c1 = getRandomColor(colors)
     let c2 = getRandomColor(colors)
     randomQuoteGeneratorID.style.background = `linear-gradient(45deg, ${c1}, ${c2})`
     if(!response.ok){
         throw new Error('Network response was not ok')
     }
+
     const data = await response.json()
-    const quoteText = data[0].content
-    const quoteAuthor = data[0].author
+    const quoteText = data.text
+    const quoteAuthor = data.author
     randomQuoteTextID.innerHTML = quoteText
     randomQuoteAuthorID.innerHTML = quoteAuthor
 }
