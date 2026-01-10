@@ -1,4 +1,4 @@
-import { VerticalAlignContainer,VerticalAlignContent, PrimaryColor } from "./stockAnalysisDashboard"
+import { PrimaryColor } from "./stockAnalysisDashboard"
 import styled from 'styled-components'
 import numabbr from 'numabbr'
 
