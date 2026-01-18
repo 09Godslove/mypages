@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09CrapsGame</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- <link rel="stylesheet" href="./src/stockAnalysisDashboard/stockAnalysisDashboard.css"> -->
+  <script type="module" crossorigin src="./assets/index-BKq4ATwj.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BeWBFkr0.css">
+</head>
+<body onload="getQuote()">
+    <div class="main-section" id = 'title'>
+        <h1 class="title-section-header">Godslove Uwumwonse</h1>
+        <p class="title-section-subtitle">Changing the world one clock at a time</p>
+        <button class="tittlesectionButton" onclick="makeDreamComeTrue()">Click me</button>
+    </div>
+    <div class="misc-section" id="aboutMe">
+        <div class="title-block-container">
+            <h1>About Me</h1>
+            <p id="misc-section-description">
+                I am a developer who is exited about using code to solve real world problems. I have been writing code for about
+                5 years now. I am also a mechanical engineer who is enthusiatic about research into additive manufacturing.
+                Also a new age content creator, check out my channel on 'curious with gee'
+            </p>
+        </div>
+        <div class="aboutme-icons">
+            <a href="https://www.linkedin.com/in/godslove-uwumwonse-4098bb238?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BT3Ka0Mi1TDOKQLBH49xDvg%3D%3D" target="_blank">
+                <i class="aboutme-icon fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://x.com/09godslove" target="_blank">
+                <i class="aboutme-icon fa-brands fa-twitter"></i>
+            </a>
+            <a href="https://www.youtube.com/@curiouswithG" target="_blank">
+               <i class="aboutme-icon fa-brands fa-youtube"></i>
+            </a>            
+            <a href="https://mail.google.com/mail/?view=cm&to=godsloveaiyowie@gmail.com" target="_blank">
+                <i class="aboutme-icon fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <div class="aboutme-CV">
+            <a href="./src/aboutmesection/Godslove Uwumwonse CV.pdf" download>Download my CV</a>
+        </div>
+    </div>
+    <div class="main-section" id="craps-game">
+        <div class="craps-game-title">Casino craps game</div>
+        <div class="craps-table">
+            <div class="craps-game-username-input" id="craps-game-username-input">
+                <div>
+                    Enter your username to begin:
+                </div>
+                <div>
+                    <input type="text" class="username-input" id="username-input">
+                </div>
+                <div onclick="registerCrapsPlayer()" class="continue-to-game">
+                    Continue?
+                </div>
+                
+            </div>
+            <div id="crapsgame-main-section">
+                <div id="crapsgame-main-section-stats">
+                    <div>
+                        Welcome, <span id = 'craps-user'></span>
+                    </div>
+                    <div id="crapsgame-main-section-money-stats">
+                        $ <span id="craps-money"></span>
+                    </div>
+                    <div>
+                        Rounds: <span id="craps-rounds"></span>
+                    </div>
+                </div>
+                <div class="craps-table-contianer no-select">
+                    <div id= 'crapsDiceRollButton'class="craps-roll-dice-container" onclick="rollDice()"> Roll Dice<i class="fa-solid fa-dice"></i></div>
+                    <div id="craps-dice-animation-contanier"></div>
+                </div>
+                <div id="crpas-betting-grid-container">
+                    <div class="craps-rounds-manager no-select">
+                        <div class="bets-grid">
+                            <div class="craps-bet-picker" id="EVEN" onclick="betEven()">
+                                EVEN
+                            </div>
+                            <div class="bet-amount">
+                                <span class="bet-change" onclick="reduceBet()">-</span>
+                                <span id="craps-user-bet-amount"></span>
+                                <span class="bet-change" onclick="increaseBet()">+</span>
+                            </div> 
+                            <div class="craps-bet-picker" id ='ODD' onclick="betOdd()">
+                                ODD
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div id="crpas-round-finished-grid-container">
+                    <div class="craps-rounds-finished-manager no-select">
+                        <div class="bets-grid">
+                            <div id ='allowed'class="craps-finshed-picker" onclick="DisplayNextRound()" >
+                                NEXT ROUND
+                            </div>
+                            <div id ='not-allowed'class="craps-finshed-picker not-allowed" >
+                                NEXT ROUND
+                            </div>
+                            <div class="rounds-finished-message" id ='round-finshed-message'>
+                                
+                            </div> 
+                            <div class="craps-finished-picker" onclick="exitGame()" >
+                                EXIT GAME
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="main-section" id="random-quote-generator">
+        
+        <div>
+            <div id="random-quote-title">RANDOM QUOTE GENERATOR</div>
+            <div id="random-quote-text"></div>
+            <div id="random-quote-author"></div>
+            <div onclick="getQuote()" id="new-quote">New Quote </div>
+        </div>
+    </div>
+    <div class="main-section" id="stock-analysis-dashboard">
+        <div id="root"></div>
+    </div>
+</body>
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Saira';
+    }
+    html, body{
+        margin: 0px;
+        padding: 0px;
+    }
+    .main-section{
+        width: 100vw;
+        height: 100vh;
+    }
+    .misc-section{
+        width: 100vw;
+        padding: 120px 25px;
+        text-align: center;
+    }
+    .title-block-container{
+        width: 65%;
+        margin: 0 auto;
+    }
+    @media screen and (max-width: 500px) {
+        .title-block-container{
+            width: 100%;
+        }
+    }
+</style>
+<script src="./src/crapsgame/crapsgame.js"></script>
+<script type="text/javascript" src="https://unpkg.com/roll-a-die@2.0.1/dist/roll-a-die.js"></script>
+<script src="./src/randomQuoteGenerator/randomQuoteGenerator.js"></script>
+<script>
+    function makeDreamComeTrue (){
+        document.body.style.background = 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMx65LMESxVxsAWYDkP9Q8oItSArTz7VyTuQ&s)'
+        document.getElementById('title').style.visibility = 'hidden'
+        document.getElementById('aboutMe').style.visibility = 'hidden'
+    }
+</script>
+</html>
+    <!-- <div id="root"></div>
+     -->
