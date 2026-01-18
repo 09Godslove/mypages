@@ -5,7 +5,10 @@ export async function analyzeStock(stockToAnalyze: string){
         alert('Kindly input stock ticker to analyze')
         return
     }
-    const url = 'http://127.0.0.1:5000/analyze-stock/' + stockToAnalyze
+    //for production
+    // const url = 'http://127.0.0.1:5000/analyze-stock/' + stockToAnalyze
+    //for deployment
+    const url = 'https://text-analysis-tool-mywi.onrender.com/analyze-stock/' + stockToAnalyze
     const response = await fetch(url)
     if(!response.ok){
         alert('Something went wrong with analysis')
